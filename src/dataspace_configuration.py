@@ -73,3 +73,6 @@ class DataspaceConfiguration(BaseModel):
     authentication_providers: List[AuthenticationProviders]
     consent_providers: List[ConsentProviders]
     definitions: Definitions
+
+
+ROOT = DataspaceConfiguration

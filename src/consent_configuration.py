@@ -32,3 +32,6 @@ class ConsentConfiguration(BaseModel):
         description="",
         examples=["https://consent.testbed.fi/Consent/Request"],
     )
+
+
+ROOT = ConsentConfiguration
