@@ -1,9 +1,8 @@
-from pathlib import Path
-
 import typer
 from json_schema_for_humans.generate import generate_from_filename
 from json_schema_for_humans.generation_configuration import GenerationConfiguration
 
+from settings import conf
 from src.consent_configuration import ConsentConfiguration
 from src.dataspace_configuration import DataspaceConfiguration
 
@@ -12,22 +11,17 @@ app = typer.Typer()
 
 @app.command()
 def convert_src_to_json_schema():
-    schemas_dir = Path("schemas")
-
     dataspace_configuration = DataspaceConfiguration.schema_json(indent=2)
-    output = schemas_dir / "dataspace-configuration.json"
+    output = conf.SCHEMAS_PATH / "dataspace-configuration.json"
     output.write_text(dataspace_configuration)
 
     consent_configuration = ConsentConfiguration.schema_json(indent=2)
-    output = schemas_dir / "consent-configuration.json"
+    output = conf.SCHEMAS_PATH / "consent-configuration.json"
     output.write_text(consent_configuration)
 
 
 @app.command()
 def convert_json_schema_to_html():
-    schemas_dir = Path("schemas")
-    html_dir = Path("html")
-
     config = GenerationConfiguration(
         collapse_long_examples=False,
         expand_buttons=True,
@@ -35,10 +29,8 @@ def convert_json_schema_to_html():
         with_footer=True,
     )
 
-    dataspace_file = schemas_dir / "dataspace-configuration.json"
-    consent_file = schemas_dir / "consent-configuration.json"
-    generate_from_filename(dataspace_file, html_dir, config=config)
-    generate_from_filename(consent_file, html_dir, config=config)
+    for schema_file in conf.SCHEMAS_PATH.glob("*.json"):
+        generate_from_filename(schema_file, conf.HTML_PATH, config=config)
 
 
 @app.command()
