@@ -60,9 +60,10 @@ def convert_src_to_json_schema() -> None:
 class CustomGenerationConfiguration(GenerationConfiguration):
     """
     Custom version of the GenerationConfiguration that allows specifying extra files to
-    copy from the template to the destination.
+    copy from the template to the destination and adding a documentation hub URL.
     """
 
+    documentation_hub_url: Optional[str] = None
     extra_files_to_copy: Optional[List[str]] = None
 
     @property
@@ -84,10 +85,11 @@ def convert_json_schema_to_html() -> None:
         footer_show_time=False,
         with_footer=True,
         custom_template_path=conf.TEMPLATE_PATH,
+        documentation_hub_url=conf.DOCUMENTATION_HUB_URL,
         extra_files_to_copy=[
-            "jquery-3.4.1.min.js",
             "bootstrap-4.3.1.min.css",
             "bootstrap-4.3.1.min.js",
+            "jquery-3.4.1.min.js",
         ],
     )
 

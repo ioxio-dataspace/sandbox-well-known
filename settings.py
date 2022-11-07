@@ -12,6 +12,10 @@ class Settings(BaseSettings):
         Path(__file__).parent / "templates" / "js" / "base.html"
     )
 
+    DOCUMENTATION_HUB_URL: Optional[
+        HttpUrl
+    ] = "https://miro.com/app/board/uXjVO7VL5jc=/"
+
     DATASPACE_BASE_DOMAIN: str = "sandbox.ioxio-dataspace.com"
     AUTHENTICATION_PROVIDER_URL: HttpUrl = "https://login.sandbox.ioxio-dataspace.com"
     CONSENT_PROVIDER_URL: HttpUrl = "https://consent.sandbox.ioxio-dataspace.com"
