@@ -64,6 +64,7 @@ def convert_json_schema_to_html() -> None:
         expand_buttons=True,
         footer_show_time=False,
         with_footer=True,
+        custom_template_path=conf.TEMPLATE_PATH,
     )
 
     for schema_file in conf.SCHEMAS_PATH.glob("*.json"):

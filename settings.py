@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Optional
 
 from pydantic import BaseSettings, HttpUrl
 
@@ -7,6 +8,9 @@ class Settings(BaseSettings):
     SRC_PATH: Path = Path(__file__).parent / "src"
     SCHEMAS_PATH: Path = Path(__file__).parent / "schemas"
     HTML_PATH: Path = Path(__file__).parent / "html"
+    TEMPLATE_PATH: Optional[Path] = (
+        Path(__file__).parent / "templates" / "js" / "base.html"
+    )
 
     DATASPACE_BASE_DOMAIN: str = "sandbox.ioxio-dataspace.com"
     AUTHENTICATION_PROVIDER_URL: HttpUrl = "https://login.sandbox.ioxio-dataspace.com"

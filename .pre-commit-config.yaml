@@ -50,7 +50,8 @@ repos:
         exclude: |
           (?x)(
             ^.*/vendor/.*$|
-            ^.*/pnpm-lock.yaml$
+            ^.*/pnpm-lock.yaml$|
+            ^templates/js/.*$
           )
   - repo: https://gitlab.com/pycqa/flake8
     rev: 5.0.4
