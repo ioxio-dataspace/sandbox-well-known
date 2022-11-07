@@ -89,6 +89,7 @@ def convert_json_schema_to_html() -> None:
         extra_files_to_copy=[
             "bootstrap-4.3.1.min.css",
             "bootstrap-4.3.1.min.js",
+            "favicon.ico",
             "jquery-3.4.1.min.js",
         ],
     )
