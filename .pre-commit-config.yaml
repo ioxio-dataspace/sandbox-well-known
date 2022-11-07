@@ -7,7 +7,11 @@ repos:
       - id: trailing-whitespace
         exclude: ^.*/vendor/.*$
       - id: end-of-file-fixer
-        exclude: ^.*/vendor/.*$
+        exclude: |
+          (?x)(
+            ^.*/vendor/.*$|
+            ^templates/js/bootstrap-.*$
+          )
       - id: check-merge-conflict
       - id: debug-statements
       # All non-bat files should end with LF

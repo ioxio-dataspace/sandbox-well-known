@@ -86,6 +86,8 @@ def convert_json_schema_to_html() -> None:
         custom_template_path=conf.TEMPLATE_PATH,
         extra_files_to_copy=[
             "jquery-3.4.1.min.js",
+            "bootstrap-4.3.1.min.css",
+            "bootstrap-4.3.1.min.js",
         ],
     )
 
