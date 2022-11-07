@@ -35,8 +35,8 @@ class Definitions(BaseModel):
     web: HttpUrl = Field(
         ...,
         examples=[conf.DEFINITIONS_WEB_URL],
-        description="The URL to a human friendly view of the definitions used on the "
-        "dataspace.",
+        description="The URL to a human friendly view of the definitions git "
+        "repository used on the dataspace.",
     )
 
 
