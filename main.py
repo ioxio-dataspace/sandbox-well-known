@@ -1,7 +1,10 @@
 import importlib.util
+from dataclasses import dataclass
 from pathlib import Path
+from typing import List, Optional
 
 import typer
+from dataclasses_json import dataclass_json
 from json_schema_for_humans.generate import generate_from_filename
 from json_schema_for_humans.generation_configuration import GenerationConfiguration
 from pydantic import BaseModel
@@ -52,6 +55,22 @@ def convert_src_to_json_schema() -> None:
         schema_file.write_text(json_schema)
 
 
+@dataclass_json
+@dataclass
+class CustomGenerationConfiguration(GenerationConfiguration):
+    """
+    Custom version of the GenerationConfiguration that allows specifying extra files to
+    copy from the template to the destination.
+    """
+
+    extra_files_to_copy: Optional[List[str]] = None
+
+    @property
+    def files_to_copy(self) -> List[str]:
+        files = super().files_to_copy
+        return [*files, *self.extra_files_to_copy]
+
+
 @app.command()
 def convert_json_schema_to_html() -> None:
     """
@@ -59,12 +78,15 @@ def convert_json_schema_to_html() -> None:
 
     :return:
     """
-    config = GenerationConfiguration(
+    config = CustomGenerationConfiguration(
         collapse_long_examples=False,
         expand_buttons=True,
         footer_show_time=False,
         with_footer=True,
         custom_template_path=conf.TEMPLATE_PATH,
+        extra_files_to_copy=[
+            "jquery-3.4.1.min.js",
+        ],
     )
 
     for schema_file in conf.SCHEMAS_PATH.glob("*.json"):
