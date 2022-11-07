@@ -106,11 +106,16 @@ body {
 .generated-by-footer {
     margin-top: 1em;
     text-align: right;
+    display: inline;
+    float: right;
+    max-width: 50%;
 }
 
 .documentation-hub-footer {
     text-align: left;
     float: left;
+    margin-top: 1rem;
+    max-width: 50%;
 }
 
 /* From https://github.com/richleland/pygments-css/blob/master/friendly.css, see https://github.com/trentm/python-markdown2/wiki/fenced-code-blocks */
