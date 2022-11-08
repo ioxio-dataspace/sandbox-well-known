@@ -20,8 +20,8 @@ class ConsentProviders(BaseModel):
         ...,
         examples=[conf.CONSENT_PROVIDER_URL],
         description="Base URL for the consent provider. Appending "
-        "`/.well-known/consent-configuration.json` will give the full URL to the "
-        "consent configuration.",
+        "`/.well-known/dataspace/consent-configuration.json` will give the full URL to "
+        "the consent configuration.",
     )
 
 
