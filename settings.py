@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseSettings, HttpUrl
 
@@ -11,6 +11,12 @@ class Settings(BaseSettings):
     TEMPLATE_PATH: Optional[Path] = (
         Path(__file__).parent / "templates" / "js" / "base.html"
     )
+    EXTRA_TEMPLATE_FILES_TO_COPY: List[str] = [
+        "bootstrap-4.3.1.min.css",
+        "bootstrap-4.3.1.min.js",
+        "favicon.ico",
+        "jquery-3.4.1.min.js",
+    ]
 
     DOCUMENTATION_HUB_URL: Optional[
         HttpUrl

@@ -23,14 +23,14 @@ app.add_typer(convert_json_schema_to_html_app, name="convert-json-schema-to-html
 app.add_typer(convert_src_to_html_app, name="convert-src-to-html")
 
 
-def get_schema_path(src_path: Path) -> Path:
+def convert_src_path_to_schema_path(src_file_path: Path) -> Path:
     """
-    Get the path to the JSON Schema file corresponding to the given Python source file.
+    Convert a Python source file path to the corresponding path to a JSON schema file.
 
-    :param src_path: The path to the source Python file.
+    :param src_file_path: The path to the source Python file.
     :return: The Path to the JSON schema file.
     """
-    relative_path = src_path.relative_to(conf.SRC_PATH)
+    relative_path = src_file_path.relative_to(conf.SRC_PATH)
     path = conf.SCHEMAS_PATH / relative_path
     path = path.with_stem(spinalcase(path.stem)).with_suffix(".json")
     return path
@@ -62,7 +62,7 @@ def convert_src_to_json_schema() -> None:
             raise ValueError(f"Error finding ROOT variable in {p}")
 
         json_schema = root.schema_json(indent=2)
-        schema_file = get_schema_path(p)
+        schema_file = convert_src_path_to_schema_path(p)
         schema_file.write_text(json_schema)
 
 
@@ -70,8 +70,9 @@ def convert_src_to_json_schema() -> None:
 @dataclass
 class CustomGenerationConfiguration(GenerationConfiguration):
     """
-    Custom version of the GenerationConfiguration that allows specifying extra files to
-    copy from the template to the destination and adding a documentation hub URL.
+    Custom version of the GenerationConfiguration for JSON schema for humans that
+    allows specifying extra files to copy from the template to the destination and
+    configurations for a documentation hub URL.
     """
 
     documentation_hub_url: Optional[str] = None
@@ -100,12 +101,7 @@ def convert_json_schema_to_html() -> None:
         with_footer=True,
         custom_template_path=conf.TEMPLATE_PATH,
         documentation_hub_url=conf.DOCUMENTATION_HUB_URL,
-        extra_files_to_copy=[
-            "bootstrap-4.3.1.min.css",
-            "bootstrap-4.3.1.min.js",
-            "favicon.ico",
-            "jquery-3.4.1.min.js",
-        ],
+        extra_files_to_copy=conf.EXTRA_TEMPLATE_FILES_TO_COPY,
     )
 
     for schema_file in conf.SCHEMAS_PATH.glob("*.json"):
