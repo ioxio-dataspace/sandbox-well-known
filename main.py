@@ -70,7 +70,7 @@ def convert_src_to_json_schema() -> None:
 @dataclass
 class CustomGenerationConfiguration(GenerationConfiguration):
     """
-    Custom version of the GenerationConfiguration for JSON schema for humans that
+    Custom version of the GenerationConfiguration for JSON Schema for Humans that
     allows specifying extra files to copy from the template to the destination and
     configurations for a documentation hub URL.
     """
@@ -90,7 +90,7 @@ class CustomGenerationConfiguration(GenerationConfiguration):
 )
 def convert_json_schema_to_html() -> None:
     """
-    Convert JSON Schema files to HTML using JSON Schema for humans.
+    Convert JSON Schema files to HTML using JSON Schema for Humans.
 
     :return:
     """
