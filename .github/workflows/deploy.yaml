@@ -49,7 +49,7 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Build 🧱
-        run: poetry run python main.py convert-src-to-html
+        run: poetry run convert-src-to-html
 
       - name: Upload artifact ↗️
         # Automatically uploads an artifact from the './_site' directory by default

@@ -14,6 +14,14 @@ from settings import conf
 
 app = typer.Typer()
 
+convert_src_to_json_schema_app = typer.Typer()
+convert_json_schema_to_html_app = typer.Typer()
+convert_src_to_html_app = typer.Typer()
+
+app.add_typer(convert_src_to_json_schema_app, name="convert-src-to-json-schema")
+app.add_typer(convert_json_schema_to_html_app, name="convert-json-schema-to-html")
+app.add_typer(convert_src_to_html_app, name="convert-src-to-html")
+
 
 def get_schema_path(src_path: Path) -> Path:
     """
@@ -28,7 +36,10 @@ def get_schema_path(src_path: Path) -> Path:
     return path
 
 
-@app.command()
+@convert_src_to_json_schema_app.callback(
+    invoke_without_command=True,
+    help="Convert source files to JSON Schema",
+)
 def convert_src_to_json_schema() -> None:
     """
     Convert Python/Pydantic source files to JSON Schema files.
@@ -72,10 +83,13 @@ class CustomGenerationConfiguration(GenerationConfiguration):
         return [*files, *self.extra_files_to_copy]
 
 
-@app.command()
+@convert_json_schema_to_html_app.callback(
+    invoke_without_command=True,
+    help="Convert JSON Schema files to HTML",
+)
 def convert_json_schema_to_html() -> None:
     """
-    Convert JSON Schema files to HTML.
+    Convert JSON Schema files to HTML using JSON Schema for humans.
 
     :return:
     """
@@ -98,7 +112,10 @@ def convert_json_schema_to_html() -> None:
         generate_from_filename(schema_file, conf.HTML_PATH, config=config)
 
 
-@app.command()
+@convert_src_to_html_app.callback(
+    invoke_without_command=True,
+    help="Convert source files to HTML",
+)
 def convert_src_to_html() -> None:
     """
     Convert Python/Pydantic source files first to JSON Schema and then those to HTML.

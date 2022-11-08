@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["IOXIO"]
 license = "BSD 3-Clause License"
+packages = [
+    { include = "main.py" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -11,6 +14,11 @@ pydantic = "^1.10.2"
 typer = "^0.7.0"
 json-schema-for-humans = "^0.42.1"
 stringcase = "^1.2.0"
+
+[tool.poetry.scripts]
+convert-src-to-json-schema = "main:convert_src_to_json_schema_app"
+convert-json-schema-to-html = "main:convert_json_schema_to_html_app"
+convert-src-to-html = "main:convert_src_to_html_app"
 
 [tool.poetry.dev-dependencies]
 

@@ -22,12 +22,19 @@ and to convert and host those as a human friendly web page.
 Generic pre-requisites for development
 
 - [Pre-commit](https://pre-commit.com/#install)
+- [Python >= 3.9](https://python.org)
 - [Poetry](https://python-poetry.org/docs/#installation)
+
+Install dependencies with:
+
+```shell
+poetry install
+```
 
 ## Usage
 
 These source files can be converted to HTML files by running:
 
 ```shell
-poetry run python main.py convert-src-to-html
+poetry run convert-src-to-html
 ```
