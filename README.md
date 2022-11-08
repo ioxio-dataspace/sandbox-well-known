@@ -38,3 +38,11 @@ These source files can be converted to HTML files by running:
 ```shell
 poetry run convert-src-to-html
 ```
+
+## Adding new files
+
+In order to add new files to the documentation:
+
+1. Add a new `.py` file in [./src](./src).
+2. Define Python/pydantic model(s) in the file.
+3. Assign the class you want to be documented to the `ROOT` variable.
