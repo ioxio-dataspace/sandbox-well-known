@@ -30,12 +30,8 @@ class Settings(BaseSettings):
     DEFINITIONS_VIEWER_URL: HttpUrl = "https://definitions.testbed.fi"
     DEVELOPER_PORTAL_URL: HttpUrl = "https://developer.testbed.fi"
     PRODUCT_GATEWAY_URL: HttpUrl = "https://gateway.testbed.fi"
-    DEFINITIONS_GIT_URL: HttpUrl = (
-        "https://github.com/Virtual-Finland/definitions.git"
-    )
-    DEFINITIONS_WEB_URL: HttpUrl = (
-        "https://github.com/Virtual-Finland/definitions"
-    )
+    DEFINITIONS_GIT_URL: HttpUrl = "https://github.com/Virtual-Finland/definitions.git"
+    DEFINITIONS_WEB_URL: HttpUrl = "https://github.com/Virtual-Finland/definitions"
 
 
 conf = Settings()
