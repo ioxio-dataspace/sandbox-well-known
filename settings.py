@@ -20,21 +20,21 @@ class Settings(BaseSettings):
 
     DOCUMENTATION_HUB_URL: Optional[
         HttpUrl
-    ] = "https://miro.com/app/board/uXjVO7VL5jc=/"
+    ] = "https://miro.com/app/board/uXjVO8VCjGA=/"
 
-    DATASPACE_BASE_DOMAIN: str = "sandbox.ioxio-dataspace.com"
-    AUTHENTICATION_PROVIDER_URL: HttpUrl = "https://login.sandbox.ioxio-dataspace.com"
-    CONSENT_PROVIDER_URL: HttpUrl = "https://consent.sandbox.ioxio-dataspace.com"
-    WEBSITE_URL: HttpUrl = "https://sandbox.ioxio-dataspace.com"
-    DATASPACE_DOCS_URL: HttpUrl = "https://docs.sandbox.ioxio-dataspace.com"
-    DEFINITIONS_VIEWER_URL: HttpUrl = "https://definitions.sandbox.ioxio-dataspace.com"
-    DEVELOPER_PORTAL_URL: HttpUrl = "https://developer.sandbox.ioxio-dataspace.com"
-    PRODUCT_GATEWAY_URL: HttpUrl = "https://gateway.sandbox.ioxio-dataspace.com"
+    DATASPACE_BASE_DOMAIN: str = "testbed.fi"
+    AUTHENTICATION_PROVIDER_URL: HttpUrl = "https://login.testbed.fi"
+    CONSENT_PROVIDER_URL: HttpUrl = "https://consent.testbed.fi"
+    WEBSITE_URL: HttpUrl = "https://testbed.fi"
+    DATASPACE_DOCS_URL: HttpUrl = "https://docs.testbed.fi"
+    DEFINITIONS_VIEWER_URL: HttpUrl = "https://definitions.testbed.fi"
+    DEVELOPER_PORTAL_URL: HttpUrl = "https://developer.testbed.fi"
+    PRODUCT_GATEWAY_URL: HttpUrl = "https://gateway.testbed.fi"
     DEFINITIONS_GIT_URL: HttpUrl = (
-        "https://github.com/ioxio-dataspace/sandbox-definitions.git"
+        "https://github.com/Virtual-Finland/definitions.git"
     )
     DEFINITIONS_WEB_URL: HttpUrl = (
-        "https://github.com/ioxio-dataspace/sandbox-definitions"
+        "https://github.com/Virtual-Finland/definitions"
     )
 
 
