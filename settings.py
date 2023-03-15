@@ -36,6 +36,7 @@ class Settings(BaseSettings):
     DEFINITIONS_WEB_URL: HttpUrl = (
         "https://github.com/ioxio-dataspace/sandbox-definitions"
     )
+    ACR_VALUES: str = "fake-auth"
 
 
 conf = Settings()
