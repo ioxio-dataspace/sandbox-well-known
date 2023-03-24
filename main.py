@@ -96,6 +96,7 @@ def convert_json_schema_to_html() -> None:
     """
     config = CustomGenerationConfiguration(
         collapse_long_examples=False,
+        collapse_long_descriptions=False,
         expand_buttons=True,
         footer_show_time=False,
         with_footer=True,
