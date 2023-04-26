@@ -85,7 +85,7 @@ class Body(BaseModel):
         ...,
         description="Data source identifier for which the token proves consent.",
         examples=[
-            f"dpp://data_product_id@{conf.DATASPACE_BASE_DOMAIN}/draft/Weather/Current/"
+            f"dpp://source@{conf.DATASPACE_BASE_DOMAIN}/draft/Weather/Current/"
             f"Metric"
         ],
     )
@@ -138,7 +138,7 @@ class ConsentToken(BaseModel):
                         "acr": conf.ACR_VALUES,
                         "app": "bb8c7f74-0855-42e1-ba09-70bb27103ded",
                         "appiss": conf.AUTHENTICATION_PROVIDER_URL,
-                        "dsi": f"dpp://data_product_id@{conf.DATASPACE_BASE_DOMAIN}/"
+                        "dsi": f"dpp://source@{conf.DATASPACE_BASE_DOMAIN}/"
                         "draft/Weather/Current/Metric",
                         "exp": 1678492800,
                         "iat": 1678406400,
