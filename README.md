@@ -39,6 +39,15 @@ These source files can be converted to HTML files by running:
 poetry run convert-src-to-html
 ```
 
+## Testing locally
+
+```shell
+cd html
+python -m http.server
+```
+
+Then check the files at: http://localhost:8000/
+
 ## Adding new files
 
 In order to add new files to the documentation:
