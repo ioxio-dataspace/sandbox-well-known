@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     DOCUMENTATION_HUB_URL: Optional[
         HttpUrl
-    ] = "https://miro.com/app/board/uXjVO7VL5jc=/"
+    ] = "https://developer.sandbox.ioxio-dataspace.com/resources"
 
     DATASPACE_BASE_DOMAIN: str = "sandbox.ioxio-dataspace.com"
     AUTHENTICATION_PROVIDER_URL: HttpUrl = "https://login.sandbox.ioxio-dataspace.com"
