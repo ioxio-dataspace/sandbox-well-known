@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     CONSENT_PROVIDER_URL: HttpUrl = "https://consent.sandbox.ioxio-dataspace.com"
     WEBSITE_URL: HttpUrl = "https://sandbox.ioxio-dataspace.com"
     DATASPACE_DOCS_URL: HttpUrl = "https://docs.sandbox.ioxio-dataspace.com"
+    DATASPACE_NAME: str = "IOXIO Sandbox Dataspace"
     DEFINITIONS_VIEWER_URL: HttpUrl = "https://definitions.sandbox.ioxio-dataspace.com"
     DEVELOPER_PORTAL_URL: HttpUrl = "https://developer.sandbox.ioxio-dataspace.com"
     PRODUCT_GATEWAY_URL: HttpUrl = "https://gateway.sandbox.ioxio-dataspace.com"

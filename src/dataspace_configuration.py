@@ -55,6 +55,7 @@ class DataspaceConfiguration(BaseModel):
                     "product_gateway_url": conf.PRODUCT_GATEWAY_URL,
                     "developer_portal_url": conf.DEVELOPER_PORTAL_URL,
                     "docs_url": conf.DATASPACE_DOCS_URL,
+                    "dataspace_name": conf.DATASPACE_NAME,
                     "authentication_providers": [
                         {"base_url": conf.AUTHENTICATION_PROVIDER_URL}
                     ],
@@ -92,6 +93,11 @@ class DataspaceConfiguration(BaseModel):
         ...,
         description="The URL at which the API documentation is hosted.",
         examples=[conf.DATASPACE_DOCS_URL],
+    )
+    dataspace_name: str = Field(
+        ...,
+        description="A human readable name for the dataspace",
+        examples=[conf.DATASPACE_NAME]
     )
     authentication_providers: List[AuthenticationProviders]
     consent_providers: List[ConsentProviders]
