@@ -97,7 +97,7 @@ class DataspaceConfiguration(BaseModel):
     dataspace_name: str = Field(
         ...,
         description="A human readable name for the dataspace",
-        examples=[conf.DATASPACE_NAME]
+        examples=[conf.DATASPACE_NAME],
     )
     authentication_providers: List[AuthenticationProviders]
     consent_providers: List[ConsentProviders]
