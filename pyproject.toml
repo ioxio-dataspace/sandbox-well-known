@@ -10,7 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pydantic = "^1.10.2"
+pydantic = "^1.10.8"
 typer = "^0.7.0"
 json-schema-for-humans = "^0.42.1"
 stringcase = "^1.2.0"
