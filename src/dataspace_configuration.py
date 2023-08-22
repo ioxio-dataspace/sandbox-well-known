@@ -5,13 +5,38 @@ from pydantic import BaseModel, Field, HttpUrl
 from settings import conf
 
 
-class AuthenticationProviders(BaseModel):
+class AuthenticationProviderDetailsDeveloper(BaseModel):
     base_url: HttpUrl = Field(
         ...,
-        examples=[conf.AUTHENTICATION_PROVIDER_URL],
+        examples=[conf.AUTHENTICATION_PROVIDER_DEVELOPER_URL],
         description="Base URL for the authentication provider. Appending "
         "`/.well-known/openid-configuration` will give the full URL to the "
         "openid-configuration.",
+    )
+
+
+class AuthenticationProviderDetailsEndUser(BaseModel):
+    base_url: HttpUrl = Field(
+        ...,
+        examples=[conf.AUTHENTICATION_PROVIDER_END_USER_URL],
+        description="Base URL for the authentication provider. Appending "
+        "`/.well-known/openid-configuration` will give the full URL to the "
+        "openid-configuration.",
+    )
+
+
+class AuthenticationProviders(BaseModel):
+    developer: AuthenticationProviderDetailsDeveloper = Field(
+        ...,
+        examples=[{"base_url": conf.AUTHENTICATION_PROVIDER_DEVELOPER_URL}],
+        description="Details about authentication provider used to identify developers "
+        "on the dataspace.",
+    )
+    end_user: AuthenticationProviderDetailsEndUser = Field(
+        ...,
+        examples=[{"base_url": conf.AUTHENTICATION_PROVIDER_END_USER_URL}],
+        description="Details about authentication provider used to identify end users "
+        "on the dataspace.",
     )
 
 
@@ -56,9 +81,14 @@ class DataspaceConfiguration(BaseModel):
                     "developer_portal_url": conf.DEVELOPER_PORTAL_URL,
                     "docs_url": conf.DATASPACE_DOCS_URL,
                     "dataspace_name": conf.DATASPACE_NAME,
-                    "authentication_providers": [
-                        {"base_url": conf.AUTHENTICATION_PROVIDER_URL}
-                    ],
+                    "authentication_providers": {
+                        "developer": {
+                            "base_url": conf.AUTHENTICATION_PROVIDER_DEVELOPER_URL
+                        },
+                        "end_user": {
+                            "base_url": conf.AUTHENTICATION_PROVIDER_END_USER_URL
+                        },
+                    },
                     "consent_providers": [{"base_url": conf.CONSENT_PROVIDER_URL}],
                     "definitions": {
                         "git": conf.DEFINITIONS_GIT_URL,
@@ -99,7 +129,7 @@ class DataspaceConfiguration(BaseModel):
         description="A human readable name for the dataspace",
         examples=[conf.DATASPACE_NAME],
     )
-    authentication_providers: List[AuthenticationProviders]
+    authentication_providers: AuthenticationProviders
     consent_providers: List[ConsentProviders]
     definitions: Definitions
 

@@ -42,7 +42,7 @@ class Body(BaseModel):
     subiss: str = Field(
         ...,
         description="The `iss` from the ID Token of the user.",
-        examples=[conf.AUTHENTICATION_PROVIDER_URL],
+        examples=[conf.AUTHENTICATION_PROVIDER_END_USER_URL],
     )
     acr: str = Field(
         ...,
@@ -57,7 +57,7 @@ class Body(BaseModel):
     appiss: str = Field(
         ...,
         description="The `iss` (OIDC issuer) at which the app is registered.",
-        examples=[conf.AUTHENTICATION_PROVIDER_URL],
+        examples=[conf.AUTHENTICATION_PROVIDER_END_USER_URL],
     )
     aud: str = Field(
         ...,
@@ -104,10 +104,10 @@ class ConsentRequestToken(BaseModel):
                     "body": {
                         "iss": "https://example.com",
                         "sub": "debade8a-091d-42da-9b0c-e61f9471e2c3",
-                        "subiss": conf.AUTHENTICATION_PROVIDER_URL,
+                        "subiss": conf.AUTHENTICATION_PROVIDER_END_USER_URL,
                         "acr": conf.ACR_VALUES,
                         "app": "bb8c7f74-0855-42e1-ba09-70bb27103ded",
-                        "appiss": conf.AUTHENTICATION_PROVIDER_URL,
+                        "appiss": conf.AUTHENTICATION_PROVIDER_END_USER_URL,
                         "aud": conf.CONSENT_PROVIDER_URL,
                         "exp": 1678492800,
                         "iat": 1678406400,
