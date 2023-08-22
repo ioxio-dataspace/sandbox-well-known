@@ -40,8 +40,6 @@ class Definitions(BaseModel):
     )
 
 
-
-
 class DataspaceConfiguration(BaseModel):
     class Config:
         schema_extra = {
