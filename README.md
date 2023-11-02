@@ -1,7 +1,9 @@
 # Documentation for .well-known endpoints on dataspaces
 
-This repository is used to document the different .well-known URLs used on dataspaces
-and to convert and host those as a human friendly web page.
+This repository is used to document the different .well-known URLs and data objects used
+on dataspaces and to convert and host those as a human friendly web page.
+
+Documentation hosted on [docs.ioxio.dev/schemas/](https://docs.ioxio.dev/schemas/)
 
 ## Structure
 
