@@ -78,6 +78,7 @@ class DataspaceConfiguration(BaseModel):
                 {
                     "dataspace_base_domain": conf.DATASPACE_BASE_DOMAIN,
                     "product_gateway_url": conf.PRODUCT_GATEWAY_URL,
+                    "definition_viewer_url": conf.DEFINITIONS_VIEWER_URL,
                     "developer_portal_url": conf.DEVELOPER_PORTAL_URL,
                     "docs_url": conf.DATASPACE_DOCS_URL,
                     "dataspace_name": conf.DATASPACE_NAME,
@@ -111,6 +112,13 @@ class DataspaceConfiguration(BaseModel):
         description="The URL at which the Product Gateway of the dataspace is hosted "
         "and on which all the data products are accessed.",
         examples=[conf.PRODUCT_GATEWAY_URL],
+    )
+    definition_viewer_url: HttpUrl = Field(
+        ...,
+        description="The URL at which the Data Definition Viewer of the dataspace is "
+        "hosted. This is where non-technical people can learn about the data products "
+        "on the dataspace.",
+        examples=[conf.DEFINITIONS_VIEWER_URL],
     )
     developer_portal_url: HttpUrl = Field(
         ...,
